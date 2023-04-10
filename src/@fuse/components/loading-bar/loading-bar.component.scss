@@ -1,0 +1,15 @@
+fuse-loading-bar {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 6px;
+}
+
+.gold-progress .mat-progress-bar-fill::after {
+<<<<<<< HEAD
+    background-color: #1ca9df!important;
+=======
+    background-color: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+}

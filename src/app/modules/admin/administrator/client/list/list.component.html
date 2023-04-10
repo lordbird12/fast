@@ -1,0 +1,200 @@
+<<<<<<< HEAD
+<div class="flex flex-col flex-auto min-w-0 bg-card dark:bg-transparent">
+
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between p-6 sm:py-8 sm:px-10 border-b bg-card dark:bg-transparent">
+        <div class="flex-1 min-w-0">
+            <!-- Title -->
+            <div class="mt-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                    แหล่งสั่งซื้อสินค้า
+                </h2>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto p-3 sm:p-10">
+        <form class="flex flex-col mt-3 pb-4 bg-card shadow overflow-hidden ng-valid" [formGroup]="formData">
+            <div class="flex flex-col sm:flex-row p-8">
+
+
+                <div class="flex flex-auto flex-wrap">
+                    <div class="flex flex-col w-full lg:w-4/4 p-5">
+
+                        <fuse-alert class="mt-3" [appearance]="'outline'" [type]="'warning'">
+                            จำกัดขนาดรูปภาพที่ 10 Mb ต่อหนึ่งรูปภาพ
+                            <br> กรุณาไม่อัพโหลดรูปภาพที่มีข้อมูลการติดต่อ เนื้อหาที่มีลิขสิทธิ์ รูปภาพผิดกฏหมายหรือมีลักษณะล่วงละเมิด เราขอสงวนสิทธิ์ในการลบรูปภาพดังกล่าวโดยไม่ต้องแจ้งให้ทราบล่วงหน้า
+                        </fuse-alert>
+                    </div>
+
+                    <ng-container *ngFor="let item of listData">
+                        <div class="flex flex-col w-full lg:w-1/4 p-5">
+
+                            <img class="img" [src]="item.image" class="h-50 w-70 border-gray-200 transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl">
+                            <mat-form-field class="w-full mt-1">
+
+                                <mat-label>
+                                    ลิ้งค์กด
+                                </mat-label>
+                                <input matInput [value]="item.name">
+                            </mat-form-field>
+                            <div class="flex items-end">
+                                <button>
+                                    <mat-icon class="icon-size-5 text-red-600" [svgIcon]="'heroicons_outline:trash'"
+                                        (click)="delete(item.id)"></mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <!-- <div class="flex flex-col w-full lg:w-4/4 p-5">
+                        <div class="border-t border-gray-200">
+                            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-4 sm:gap-4 sm:px-6">
+                                <ng-container *ngFor="let item of listData">
+                                    <img class="img" [src]="item.image" class="h-80 w-80 border-gray-200 transition-shadow ease-in-out duration-300 shadow-none hover:shadow-xl">
+                                    <br>
+                                    <mat-form-field class="w-full">
+
+                                        <mat-label>ลิ้งค์กด
+                                        </mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="flex flex-col w-full lg:w-4/4 p-5">
+                        <div class="border-t border-gray-200">
+                            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                                <div class=" flex flex-wrap justify-start">
+                                    <ngx-dropzone style="width: 100%; height: 120px; justify-content: center;" (change)="onSelect($event)">
+                                        <ngx-dropzone-label>รูปภาพ 276 × 140 px</ngx-dropzone-label>
+                                        <ngx-dropzone-image-preview *ngFor="let f of files" [removable]="true" [file]="f" (removed)="onRemove(f)">
+                                        </ngx-dropzone-image-preview>
+                                    </ngx-dropzone>
+                                </div>
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-full lg:w-4/4 p-5">
+                        <mat-form-field class="w-full">
+                            <mat-label>
+                                ลิ้งค์กด
+                            </mat-label>
+                            <input matInput [formControlName]="'name'">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <!-- button -->
+            <div class="flex items-center justify-end w-full border-t px-8 py-4">
+                <div class="flex items-center justify-end">
+                    <button class="px-6 ml-3 mat-primary" (click)="create()" mat-flat-button>
+                        <mat-icon svgIcon="heroicons_solid:check"></mat-icon>
+                        บันทึก
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+=======
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+
+    <!-- Header -->
+    <div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+        <!-- Loader -->
+        <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+            <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+        </div>
+        <!-- Title -->
+        <div class="text-4xl font-extrabold tracking-tight">รายการขนส่งสินค้า</div>
+        <!-- Actions -->
+        <div *ngIf="roleType == 'marketing'" class="flex shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+
+            <!-- Add product button -->
+            <a routerLink="../../logistic/new" class="ml-4" mat-flat-button [color]="'primary'">
+                <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                <span class="ml-2 mr-1">เพิ่มใหม่</span>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- search -->
+    <!-- <div class="search-box relative flex flex-col flex-0 px-6 md:px-8 border-b mt-4">
+
+    </div> -->
+
+
+    <!-- Main -->
+    <div class="flex flex-auto overflow-hidden">
+        <!-- Products list -->
+        <div class="flex flex-col flex-auto p-5 overflow-hidden sm:overflow-y-auto">
+            <!-- Products list -->
+            <div class="flex flex-col flex-auto p-5 overflow-hidden sm:overflow-y-auto ">
+                <table datatable [dtOptions]="dtOptions" class="table row-border hover">
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>ชื่อบัญชี</th>
+                            <th>ชื่อเลขที่</th>
+                            <th>อธิบายบัญชี</th>
+                            <th>ยอดคงเหลือ</th>
+                            <th>สถานะ</th>
+                            <th>สร้างโดย</th>
+                            <th>วันที่สร้าง</th>
+                            <th>จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="dataRow?.length != 0">
+                        <tr *ngFor="let item of dataRow; let i = index">
+                            <td style="width: 5%;">{{ pages.begin + (i + 1) }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.number }}</td>
+                            <td>{{ item.description }}</td>
+                            <td> {{item.summary | currency:" ":"symbol"}}</td>
+                            <td>
+                                <div *ngIf="item.status === 'Yes'"> เปิดการใช้งาน</div>
+                                <div *ngIf="item.status === 'No'"> ปิดการใช้งาน</div>
+                            </td>
+                            <td style="width: 5%;">{{ item.create_by }}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td style="width: 15%;">
+                                <button mat-button (click)="edit(item.id)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-button (click)="viewDetail(item.id)">
+                                    <mat-icon>visibility</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody *ngIf="dataRow?.length == 0">
+                        <tr>
+                            <td colspan="9" class="no-data-available text-center">ไม่มีข้อมูล !</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td style="width: 5%;"></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>ยอดรวมรายการ</b></td>
+                            <td><b>{{this.totalRowSummary | currency:" ":"symbol"}}</b></td>
+                            <td></td>
+                            <td style="width: 5%;"></td>
+                            <td></td>
+                            <td style="width: 15%;"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+</div>

@@ -1,0 +1,91 @@
+/* ----------------------------------------------------------------------------------------------------- */
+
+
+/*  @ Main Tailwind file for injecting utilities.
+/* ----------------------------------------------------------------------------------------------------- */
+
+@tailwind utilities;
+.mat-flat-button {
+<<<<<<< HEAD
+    border: 1px solid #1ca9df!important;
+    color: #1ca9df!important;
+=======
+    border: 1px solid #2E6AB3 !important;
+    color: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+    border-radius: 0px !important;
+}
+
+.mat-flat-button.mat-primary {
+<<<<<<< HEAD
+    border: 1px solid #1ca9df!important;
+    background-color: #1ca9df!important;
+=======
+    border: 1px solid #2E6AB3 !important;
+    background-color: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+    border-radius: 0px !important;
+    span.mat-button-wrapper {
+        color: white !important;
+    }
+}
+
+.mat-flat-button.mat-success {
+    border: 1px solid #4DB433 !important;
+    background-color: #4DB433 !important;
+    border-radius: 0px !important;
+    span.mat-button-wrapper {
+        color: white !important;
+    }
+}
+
+.mat-flat-button.mat-success-revers {
+    border: 1px solid #4DB433 !important;
+    background-color: #FFFFFF !important;
+    border-radius: 0px !important;
+    span.mat-button-wrapper {
+        color: #4DB433 !important;
+    }
+}
+
+.mat-menu-item:hover {
+    mat-icon.mat-icon-no-color {
+        color: white;
+    }
+    &:not([disabled]) {
+<<<<<<< HEAD
+        background: #1ca9df!important;
+=======
+        background: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+        color: white !important;
+    }
+}
+
+.mat-option {
+    // color: theming.get-color-from-palette($foreground, text);
+    &:hover:not(.mat-option-disabled),
+    &:focus:not(.mat-option-disabled) {
+<<<<<<< HEAD
+        background: #1ca9df!important;
+=======
+        background: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+        color: white;
+    }
+    // In multiple mode there is a checkbox to show that the option is selected.
+    // &.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+    //   background: theming.get-color-from-palette($background, hover);
+    // }
+    &.mat-active {
+<<<<<<< HEAD
+        background: #1ca9df!important;
+=======
+        background: #2E6AB3 !important;
+>>>>>>> a2c3955d2c4536e655870b1bb58ddaf5da1db342
+        color: white !important;
+    }
+    // &.mat-option-disabled {
+    //   color: theming.get-color-from-palette($foreground, hint-text);
+    // }
+}
